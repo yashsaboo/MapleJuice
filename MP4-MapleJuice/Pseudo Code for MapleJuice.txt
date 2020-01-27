@@ -1,0 +1,48 @@
+- Create a inputData/ folder and give 777 permission: Here the raw full input file for MapReduce will be present, say mrInput.txt
+- Create a shardedMapInputData/ folder and give 777 permission: Here the shardedInput which will be present which will have numbering of sharding
+- Create a shardedReduceInputData/ folder and give 777 permission
+- Create a shardedReduceOutputData/ folder and give 777 permission
+- Create a shardedMapOutputData/ folder and give 777 permission
+- Create a outputData/ folder and give 777 permission
+
+At Master
+- Run masterMap.go
+	- Read input file, mrInput.txt
+	- Find how many VMs are currently running, say N
+	- Shard the input file into N different files, and store it in shardedMapInputData/ folder
+	- SCP all those files into all VMs into shardedMapInputData/ folder
+	- Notify all VMs to start their map task
+	- Wait for x amount of time, while worker nodes populate the shardedMapOutputData/ folder with their map work
+	- After x amount of seconds, check if N different files are present or not.
+		- If no, ask some other VM to run the task
+		Do this until you have N files in shardedMapOutputData/ folder
+	- Close
+- Run masterReduce.go
+	- Find how many VMs are currently running, say M
+	- Create M files in shardedReduceInputData/ folder
+	- Iterate over all N files in shardedMapOutputData/ folder
+		- For each (key, value) pair, do hash/range partioning keeping (mod) M in mind, and append to 'r' file (0\<r\<=M), based on partioning function, in shardedReduceInputData/ folder
+	- SCP all those files into all VMs into shardedReduceInputData/ folder
+	(same steps as map)
+	- Notify all VMs to start their reduce task
+	- Wait for x amount of time, while worker nodes populate the shardedReduceOutputData/ folder with their map work
+	- After x amount of seconds, check if N different files are present or not.
+		- If no, ask some other VM to run the task
+		Do this until you have N files in shardedMapOutputData/ folder
+	- Close
+- Run MapleJuice.go
+	- Combine all the N files in shardedMapOutputData/ folder, and store it in outputData/ folder, with name say mrOutput.txt
+
+At Worker Nodes
+- Run workerMap.go
+	- Listen to Master on some port infinitely
+	- After hearing a request, you'll receive the fileName on which that VM is supposed to run it's Map implementation.
+	- Map Implementation for Word Count
+		- Create a hashmap
+		- Iterate over the file and for each word, add it to hashmap
+	- Flush the hashmap to the file in shardedMapOutputData/ folder
+	- SCP the file to shardedMapOutputData/ folder on Master Node
+	It might get another request to run if some other VM fails. Just follow the same above steps
+- Run workerReduce.go
+	Same as workerMap.go, just the folder name changes
+

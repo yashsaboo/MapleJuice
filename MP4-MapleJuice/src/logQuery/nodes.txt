@@ -1,0 +1,10 @@
+fa19-cs425-g69-01.cs.illinois.edu 172.22.156.228 10001
+fa19-cs425-g69-02.cs.illinois.edu 172.22.152.233 10002
+fa19-cs425-g69-03.cs.illinois.edu 172.22.154.229 10003
+fa19-cs425-g69-04.cs.illinois.edu 172.22.156.229 10004
+fa19-cs425-g69-05.cs.illinois.edu 172.22.152.234 10005
+fa19-cs425-g69-06.cs.illinois.edu 172.22.154.230 10006
+fa19-cs425-g69-07.cs.illinois.edu 172.22.156.230 10007
+fa19-cs425-g69-08.cs.illinois.edu 172.22.152.235 10008
+fa19-cs425-g69-09.cs.illinois.edu 172.22.154.231 10009
+fa19-cs425-g69-10.cs.illinois.edu 172.22.156.231 10010

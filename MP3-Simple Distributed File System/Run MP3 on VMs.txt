@@ -1,0 +1,31 @@
+cd C:\\Users\\Yash\\Desktop\\CS425\\MP3
+
+ssh ysaboo2@fa19-cs425-g69-01.cs.illinois.edu
+ssh ysaboo2@fa19-cs425-g69-02.cs.illinois.edu
+ssh ysaboo2@fa19-cs425-g69-03.cs.illinois.edu
+ssh ysaboo2@fa19-cs425-g69-04.cs.illinois.edu
+ssh ysaboo2@fa19-cs425-g69-05.cs.illinois.edu
+
+scp /home/ysaboo2/MP3/membership/membership.go /home/ysaboo2/go/src/membership
+mkdir -p /home/ysaboo2/go/src/membership
+
+git clone https://github.com/yashsaboo/MP3.git
+git pull 
+
+yashsaboo
+
+vulture123camel9
+
+go run client.go who_is_master
+
+go run client.go put NewLearning.txt Learning.txt
+
+go run client.go get Learning.txt learningForGET.txt
+
+cd MP3/
+go run server.go
+
+rm -rf MP3
+
+git fetch --all
+git reset --hard origin/master

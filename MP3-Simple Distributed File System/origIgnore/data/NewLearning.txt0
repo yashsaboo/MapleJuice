@@ -1,0 +1,20 @@
+Paper Name: Learning a Channelized Observer for Image Quality Assessment
+
+Authors: Jovan G. Brankov, Yongyi Yang, et. al.
+
+Type of Images: Mathematical Cardiac Torso (MCAT) phantom to generate average activity and attenuation maps to simulate activity and attenuation maps for a human torso, including the effects of contractile and wringing heart motions, and respiratory motion
+
+								The maps were sampled on a grid of 128 × 128 × 64 with a voxel/pixel size of 0.317 cm. 
+
+								These projections were then re-sampled on a 64 × 64 grid over 60 angles to which Poisson noise was subsequently added. 
+
+Evaluation:	Mathematical Obervors - channelized support vector machine (CSVM)
+
+								Alternative Forced Choice (AFC): Unknown
+
+												The image scores from the two observers were pooled together into a single set for subsequent studies. That is, the scores from the two observers were treated as two observations of the same images. This would double the number of training samples.
+
+								Notes:
+
+								2. For each parameter combination of the reconstruction algorithm, a total of 100 noisy image realizations were scored by the observers (50 with defect present and 50 with defect absent) on a six-point scale, following a training session involving an additional 60 images.
+

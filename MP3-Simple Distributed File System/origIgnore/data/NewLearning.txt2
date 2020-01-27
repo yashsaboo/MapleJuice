@@ -1,0 +1,18 @@
+Paper Name: Learning a Channelized Observer for Image Quality Assessment
+
+Authors: Jovan G. Brankov, Yongyi Yang, et. al.
+
+Description/Acquiring of Data: 
+
+								The maps were sampled on a grid of 128 × 128 × 64 with a voxel/pixel size of 0.317 cm. 
+
+								Simulated perfusion defect was placed at a fixed position in the left-ventricular wall
+
+			Human Observors - 	No of observors: 2 medical physicists
+
+								Benchmarking: 
+
+												This assumption is justified by the results shown in Fig. 5(chek paper), which shows that the area under receiver operating characteristic (ROC) curve, , is virtually the same whether the values for two observers are averaged, or whether the observer data are pooled prior to computing.
+
+								1. Evaluated the defect visibility in a signal-known-exactly (SKE) environment [which also assumes location-known-exactly (LKE)] for images at every combination of the number of iterations and FWHM of the filter. 
+

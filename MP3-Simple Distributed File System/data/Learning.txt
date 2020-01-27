@@ -1,0 +1,17 @@
+Paper Name: Learning a Channelized Observer for Image Quality Assessment
+Authors: Jovan G. Brankov, Yongyi Yang, et. al.
+Type of Images: Mathematical Cardiac Torso (MCAT) phantom to generate average activity and attenuation maps to simulate activity and attenuation maps for a human torso, including the effects of contractile and wringing heart motions, and respiratory motion
+Description/Acquiring of Data: 
+								The maps were sampled on a grid of 128 × 128 × 64 with a voxel/pixel size of 0.317 cm. 
+								Monte-Carlo based projections (128×128 images over 60 angles spanning 360◦) were generated simulating the effects of non-uniform attenuation, photon scatter and distance-dependent resolution (DDR) corresponding to a low-energy high-resolution collimator. 
+								These projections were then re-sampled on a 64 × 64 grid over 60 angles to which Poisson noise was subsequently added. 
+								Simulated perfusion defect was placed at a fixed position in the left-ventricular wall
+Evaluation:	Mathematical Obervors - channelized support vector machine (CSVM)
+			Human Observors - 	No of observors: 2 medical physicists
+								Alternative Forced Choice (AFC): Unknown
+								Benchmarking: 
+												The image scores from the two observers were pooled together into a single set for subsequent studies. That is, the scores from the two observers were treated as two observations of the same images. This would double the number of training samples.
+												This assumption is justified by the results shown in Fig. 5(chek paper), which shows that the area under receiver operating characteristic (ROC) curve, , is virtually the same whether the values for two observers are averaged, or whether the observer data are pooled prior to computing.
+								Notes:
+								1. Evaluated the defect visibility in a signal-known-exactly (SKE) environment [which also assumes location-known-exactly (LKE)] for images at every combination of the number of iterations and FWHM of the filter. 
+								2. For each parameter combination of the reconstruction algorithm, a total of 100 noisy image realizations were scored by the observers (50 with defect present and 50 with defect absent) on a six-point scale, following a training session involving an additional 60 images.
